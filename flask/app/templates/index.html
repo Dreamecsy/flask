@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    {% if title %}
-    <title>{{ title }} - 博客</title>
-    {% else %}
-    <title>欢迎来到博客!</title>
-    {% endif %}
-</head>
+{% block content %}
 
-<body>
-    <h1>Hello, {{ user.username }}!</h1>
-</body>
+<h1>你好呀, {{ user.username }} !</h1>
 
-</html>
+{% for post in posts %}
+<div>
+    <p>{{ post.author.username }} 说:<b>{{ post.body }}</b></p>
+</div>
+{% endfor %}
+
+
+{% endblock %}
